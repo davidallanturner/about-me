@@ -11,7 +11,7 @@ let positiveAnsw = ['YES', 'Y']
 let quiz = {
   questions: [
   'Do I currently work in IT?'
-  ,'Is my favorite move "The Adventures of SharkBoy and LavaGirl?"'
+  ,'Is my favorite movie "The Adventures of SharkBoy and LavaGirl?"'
   ,'Yes or No, I\'ve met Gary Sinise more than once?'
   ,'Did I serve in the Army?'
   ,'Do you think I\'ve ever been a pastor before?'
