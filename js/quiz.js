@@ -2,6 +2,8 @@
 
 let myName = prompt('Hi, may I have your name?')
 
+prompt(`Nice to meet you ${myName}. I have a short quiz for you to help you learn a little more about me.`)
+
 let negativeAnsw = ['NO', 'N']
 let positiveAnsw = ['YES', 'Y']
 
