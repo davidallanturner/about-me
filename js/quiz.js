@@ -45,7 +45,7 @@ let score = 0
 for(let i=0; i<quiz.questions.length; i++){
  let guestAnswer = prompt(quiz.questions[i])
 
-  if(guestAnswer.toUpperCase() === quiz.answers[i].answer[0] || guestAnswer.toUpperCase() === quiz.answers[i].answer[1] || (typeof quiz.answers[i].answer === number && guestAnswer === quiz.answers[i].answer[0])){
+  if(guestAnswer.toUpperCase() === quiz.answers[i].answer[0] || guestAnswer.toUpperCase() === quiz.answers[i].answer[1] || (typeof quiz.answers[i].answer === 'number' && guestAnswer === quiz.answers[i].answer[0])){
    score++
    //console.log('correct')
    alert('Correct! ' + quiz.answers[i].response)
