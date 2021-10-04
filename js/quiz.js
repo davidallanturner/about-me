@@ -15,6 +15,7 @@ let quiz = {
   ,'Yes or No, I\'ve met Gary Sinise more than once?'
   ,'Did I serve in the Army?'
   ,'Do you think I\'ve ever been a pastor before?'
+  ,'Guess my favorite number.'
   ],
   answers: [
     {response: 'I do currently work in IT. I work at Kuehne-Nagel as a local Super User for our systems. I work in a medical system, and make sure that the world\'s supply of cartoid (heart) stents and catheters, catheters for aneurysms and clots, and other similar supplies.'
@@ -32,14 +33,19 @@ let quiz = {
     ,   {response: 'Fun fact: Nope, but I have been an Elder of my church for a long time now. When the pastor is out, I\'ve stepped up. If we didn\'t have a pastor, I filled that role. (Not that anyone asked, but I\'m Lutheran, and I do have schooling for the pastoral profession. If I take that profession farther, I\'ll be doing freelancing on the side.)'
     ,answer: negativeAnsw
     }
+    ,   {response: 'My lucky number is 17!'
+    ,answer: 17
+    }
   ]
+
 }
 
 let score = 0
 
 for(let i=0; i<quiz.questions.length; i++){
  let guestAnswer = prompt(quiz.questions[i])
-  if(guestAnswer.toUpperCase() === quiz.answers[i].answer[0] || guestAnswer.toUpperCase() === quiz.answers[i].answer[1]){
+
+  if(guestAnswer.toUpperCase() === quiz.answers[i].answer[0] || guestAnswer.toUpperCase() === quiz.answers[i].answer[1] || (typeof quiz.answers[i].answer === number && guestAnswer === quiz.answers[i].answer[0])){
    score++
    //console.log('correct')
    alert('Correct! ' + quiz.answers[i].response)
