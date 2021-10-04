@@ -8,6 +8,7 @@ let negativeAnsw = ['NO', 'N']
 let positiveAnsw = ['YES', 'Y']
 
 
+
 let quiz = {
   questions: [
   'Do I currently work in IT?'
@@ -50,6 +51,15 @@ for(let i=0; i<quiz.questions.length; i++){
    //console.log('correct')
    alert('Correct! ' + quiz.answers[i].response)
    //console.log(quiz.answers[i].response)
+  } else if(i === 7 && guestAnswer !== quiz.answers[i].answer[0]){
+    for(let numAttempt = 1, numAttempt < 4; numAttempt++){
+      if(guestAnswer < quiz.answers[i].answer[0]){
+        alert('Your a little low, try again')
+      } else if( guestAnswer > quiz.answers[i].answer[0]){
+        alert('Your guess was too low. Try again.')
+      }
+    }
+    
   } else {
    //console.log('incorrect')
    //console.log('Sorry, that\'s incorrect. ', quiz.answers[i].response)
