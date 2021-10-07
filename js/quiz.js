@@ -1,13 +1,17 @@
-'use strict'
+'use strict';
 
-let myName = prompt('Hi, may I have your name?')
+function greeting() {
+  let myName = prompt('Hi, may I have your name?');
+  alert(
+    `Nice to meet you ${myName}. I have a short quiz for you to help you learn a little more about me.`
+  );
+  return myName;
+}
 
-alert(
-  `Nice to meet you ${myName}. I have a short quiz for you to help you learn a little more about me.`
-)
+let myName = greeting();
 
-let negativeAnsw = ['NO', 'N']
-let positiveAnsw = ['YES', 'Y']
+let negativeAnsw = ['NO', 'N'];
+let positiveAnsw = ['YES', 'Y'];
 
 let quiz = {
   questions: [
@@ -46,65 +50,74 @@ let quiz = {
       answer: negativeAnsw,
     },
     { response: 'My lucky number is 17!', answer: '17' },
-    { response: 'Here\'s all the possible answers', answer: ['appreciate', 'enjoy', 'adore', 'relish', 'desire', 'cherish', 'worship']
+    {
+      response: 'Here\'s all the possible answers', answer: ['appreciate', 'enjoy', 'adore', 'relish', 'desire', 'cherish', 'worship']
     },
   ],
-}
+};
 
-let score = 0
+let score = 0;
 
-for (let i = 0; i < quiz.questions.length; i++) {
-  let guestAnswer = prompt(quiz.questions[i])
+function quizTest() {
 
-  if (typeof guestAnswer !== 'number' &&
-    guestAnswer.toUpperCase() === quiz.answers[i].answer[0] ||
-    guestAnswer.toUpperCase() === quiz.answers[i].answer[1] 
-  ) {
-    score++
-    console.log('correct')
-    alert('Correct! ' + quiz.answers[i].response)
-    //console.log(quiz.answers[i].response)
-  } else if (i === 5) {
-    //console.log('hit')
-    let numAttempts = 3
-    let numCorrect = false
-    console.log(quiz.answers[i].answer)
-    while(numAttempts>0){
-      //console.log('hi')
-      if(guestAnswer === quiz.answers[i].answer){
-        score++
-        //console.log('score added', score)
-        numCorrect = true
-        break;
-      }else if(+guestAnswer < quiz.answers[i].answer) {
-        alert('That\'s a little low. Try again please')
-        console.log('current guestAnswer:', guestAnswer)
-        guestAnswer = prompt(quiz.questions[i])
-        
-        //console.log('bang', numAttempts)
-      } else if (+guestAnswer > quiz.answers[i].answer){
-        alert('That\'s a little high. Try again please')
-        guestAnswer = prompt(quiz.questions[i])
-       //console.log('wham', numAttempts)
-        
+  for (let i = 0; i < quiz.questions.length; i++) {
+    let guestAnswer = prompt(quiz.questions[i]);
+
+    if (typeof guestAnswer !== 'number' &&
+      guestAnswer.toUpperCase() === quiz.answers[i].answer[0] ||
+      guestAnswer.toUpperCase() === quiz.answers[i].answer[1]
+    ) {
+      score++;
+      console.log('correct');
+      alert('Correct! ' + quiz.answers[i].response);
+      //console.log(quiz.answers[i].response)
+    } else if (i === 5) {
+      //console.log('hit')
+      let numAttempts = 3;
+      let numCorrect = false;
+      console.log(quiz.answers[i].answer);
+      while (numAttempts > 0) {
+        //console.log('hi')
+        if (guestAnswer === quiz.answers[i].answer) {
+          score++;
+          //console.log('score added', score)
+          numCorrect = true;
+          break;
+        } else if (+guestAnswer < quiz.answers[i].answer) {
+          alert('That\'s a little low. Try again please');
+          console.log('current guestAnswer:', guestAnswer);
+          guestAnswer = prompt(quiz.questions[i]);
+
+          //console.log('bang', numAttempts)
+        } else if (+guestAnswer > quiz.answers[i].answer) {
+          alert('That\'s a little high. Try again please');
+          guestAnswer = prompt(quiz.questions[i]);
+          //console.log('wham', numAttempts)
+
+        }
+        numAttempts--;
+        //console.log('running now.')
+
       }
-    numAttempts--
-    //console.log('running now.')
+      if (numCorrect === false) {
+        alert("Sorry, that's incorrect. " + quiz.answers[i].response);
+      }
+      alert('Correct. ' + quiz.answers[i].response);
 
+    } else {
+      //console.log('incorrect')
+      //console.log('Sorry, that\'s incorrect. ', quiz.answers[i].response)
+      alert("Sorry, that's incorrect. " + quiz.answers[i].response);
     }
-      if(numCorrect === false){
-        alert("Sorry, that's incorrect. " + quiz.answers[i].response)
-      }
-        alert('Correct. ' + quiz.answers[i].response)
-        
-  } else {
-    //console.log('incorrect')
-    //console.log('Sorry, that\'s incorrect. ', quiz.answers[i].response)
-    alert("Sorry, that's incorrect. " + quiz.answers[i].response)
   }
 }
 
-alert(
-  `Thanks for taking the quiz ${myName}. Your score of ${score}/6 is not bad. Here's a portion of my technical expertise.`
-)
+quizTest();
 
+function goodBye() {
+  alert(
+    `Thanks for taking the quiz ${myName}. Your score of ${score}/6 is not bad. Here's a portion of my technical expertise.`
+  );
+}
+
+goodBye();
