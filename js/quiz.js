@@ -118,27 +118,41 @@ function quizTest() {
         alert('Correct. ' + quiz.answers[i].response);
       }
 
-    }else if(i === 6){
-      
-      for(let x=0; x<=6; x++)){
+    } else if (i === 6) {
+
+      let correctAnswer = false;
+
+      //break multiple loops should be able to make top loop variable outside scope, but another fun way is: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
+      //let's get snakey in here!
+
+      loop1:
+      for (let x = 0; x <= 6; x++) {
         console.log('question 7 guestAnswer: ' + guestAnswer);
         console.log('length of answer array: ' + quiz.answers[i].answer.length);
-        for(let m=0;m<quiz.answers[i].answer.length; m++){
-          if(guestAnswer === quiz.answers[i].answer[m]){
-            score++;
-            alert('Correct!');
-            break;
-          }else if(m<6){
-            alert('Sorry, that\'s not quite correct. Try again.');
-            guestAnswer = prompt(quiz.questions[i]);
+
+        if (x < 6) {
+          loop2:
+          for (let m = 0; m < quiz.answers[i].answer.length; m++) {
+            if (guestAnswer === quiz.answers[i].answer[m]) {
+              score++;
+              alert('Correct!');
+              
+              break loop1;
+
+            }
           }
-          attempts++;
+
+          //if no correct in above for loop -- give error and repeat.
+          alert('Sorry, Didn\'t find the answer on this guess. Try again.')
+          guestAnswer = prompt(quiz.questions[i])
+          console.log('bang')
+
         }
 
       }
       alert('All posible answers were: ' + JSON.stringify(quiz.answers[i].answer));
     } else {
-      //console.log('incorrect')
+      console.log('incorrect')
       //console.log('Sorry, that\'s incorrect. ', quiz.answers[i].response)
       alert('Sorry, that\'s incorrect. ' + quiz.answers[i].response);
     }
