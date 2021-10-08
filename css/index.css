@@ -20,7 +20,7 @@ header {
 body{
  background-color: rgba(0,0,0,0.2);
 }
-/* needs to inherit width */
+/* needs to inherit width if using something other than body, so for now... body.*/
 body::before {
   content: "";
   position: fixed;
