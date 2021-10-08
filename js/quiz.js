@@ -136,7 +136,7 @@ function quizTest() {
             if (guestAnswer === quiz.answers[i].answer[m]) {
               score++;
               alert('Correct!');
-              
+
               break loop1;
 
             }
