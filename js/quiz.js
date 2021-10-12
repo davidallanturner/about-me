@@ -77,38 +77,38 @@ function quizTest() {
       guestAnswer.toUpperCase() === quiz.answers[i].answer[1]
     ) {
       score++;
-      
+
       alert('Correct! ' + quiz.answers[i].response);
-      
+
     } else if (i === 5) {
-      
+
       let numAttempts = 3;
       let numCorrect = false;
-      
+
       while (numAttempts > 0) {
-        
+
         if (isNaN(+guestAnswer)) {
           alert('Numbers only please.');
           guestAnswer = prompt(quiz.questions[i]);
         } else if (guestAnswer === quiz.answers[i].answer) {
           score++;
-          
+
           numCorrect = true;
           break;
         } else if (+guestAnswer < quiz.answers[i].answer) {
           alert('That\'s a little low. Try again please');
-          
+
           guestAnswer = prompt(quiz.questions[i]);
 
-          
+
         } else if (+guestAnswer > quiz.answers[i].answer) {
           alert('That\'s a little high. Try again please');
           guestAnswer = prompt(quiz.questions[i]);
 
-          
+
         }
         numAttempts--;
-        
+
       }
       if (numCorrect === false) {
         alert('Sorry, that\'s incorrect. ' + quiz.answers[i].response);
@@ -118,16 +118,11 @@ function quizTest() {
 
     } else if (i === 6) {
 
-      let correctAnswer = false;
-
-
-
       loop1:
       for (let x = 0; x <= 6; x++) {
-        
+
 
         if (x < 6) {
-          loop2:
           for (let m = 0; m < quiz.answers[i].answer.length; m++) {
             if (guestAnswer === quiz.answers[i].answer[m]) {
               score++;
@@ -138,17 +133,16 @@ function quizTest() {
             }
           }
 
-          alert('Sorry, Didn\'t find the answer on this guess. Try again.')
-          guestAnswer = prompt(quiz.questions[i])
-          
+          alert('Sorry, Didn\'t find the answer on this guess. Try again.');
+          guestAnswer = prompt(quiz.questions[i]);
 
         }
 
       }
       alert('All posible answers were: ' + JSON.stringify(quiz.answers[i].answer));
     } else {
-     
-      
+
+
       alert('Sorry, that\'s incorrect. ' + quiz.answers[i].response);
     }
   }

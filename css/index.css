@@ -3,37 +3,37 @@
   src: url('/fonts/appleChancery.woff') format('woff');
 }
 
-body{
- margin: 0px 20px;
- /* background-color: blue; */
+body {
+  margin: 0px 20px;
+  /* background-color: blue; */
 }
 
 header {
- margin-bottom: 20px;
- text-align: center;
- box-sizing: content-box;
- padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-sizing: content-box;
+  padding: 20px;
   background-color: rgba(219, 219, 219, 0.5);
- border: 10px solid rgba(46, 46, 46, 0.75);
+  border: 10px solid rgba(46, 46, 46, 0.75);
 }
 
-body{
- background-color: rgba(0,0,0,0.2);
+body {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 /* needs to inherit width if using something other than body, so for now... body.*/
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   left: 0;
   right: 0;
   z-index: -1;
-  
+
   display: block;
   background-image: url('https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=92f3e02f63678acc8416d044e189f515');
   background-size: cover;
   width: 100%;
   height: 100%;
-  
+
   -webkit-filter: blur(8px);
   -moz-filter: blur(8px);
   -o-filter: blur(8px);
@@ -41,34 +41,66 @@ body::before {
   filter: blur(8px);
 }
 
-
-
-h2{
- /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
- font-size: 2.5rem;
- word-spacing: -0.18rem;
+h2 {
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+  font-size: 2.5rem;
+  word-spacing: -0.18rem;
 }
 
-h2>em {
- font-family: 'Apple Chancery', 'Times New Roman', cursive ;
- /* display:block; */
- /* text-transform: lowercase; */
- letter-spacing: -0.3rem;
- /* margin-top: 0.2em; */
- font-size: 4rem;
- word-spacing: 1rem;
+h2 > em {
+  font-family: 'Apple Chancery', 'Times New Roman', cursive;
+  /* display:block; */
+  /* text-transform: lowercase; */
+  letter-spacing: -0.3rem;
+  /* margin-top: 0.2em; */
+  font-size: 4rem;
+  word-spacing: 1rem;
 }
 
 h3 {
- font-style: italic;
- font-size: 1.5rem;
- word-spacing: 1rem;
+  font-style: italic;
+  font-size: 1.5rem;
+  word-spacing: 1rem;
 }
 
 h1 {
- font-weight:bold;
- font-size: 2rem;
- word-spacing: 1rem;
- /* padding-left: 150px; */
+  font-weight: bold;
+  font-size: 2rem;
+  word-spacing: 1rem;
+  /* padding-left: 150px; */
 }
 
+li {
+  display: block;
+  background-color: rgba(219, 219, 219, 0.5);
+  border: 1px solid rgba(46, 46, 46, 0.75);
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 5px;
+  flex-wrap: wrap;
+}
+
+#projects {
+  display: block;
+  flex-direction: column;
+}
+#projects ul {
+  display: block;
+}
+
+div {
+  background-color: rgba(39, 17, 32, 0.527);
+}
+
+main > p {
+  font-family: 'Apple Chancery', 'Times New Roman', cursive;
+  /* display:block; */
+  /* text-transform: lowercase; */
+  /* letter-spacing: -0.3rem; */
+  /* margin-top: 0.2em; */
+  font-size: 2rem;
+  word-spacing: 1rem;
+  padding-bottom: 15px;
+}
