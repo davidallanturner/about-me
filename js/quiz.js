@@ -77,40 +77,38 @@ function quizTest() {
       guestAnswer.toUpperCase() === quiz.answers[i].answer[1]
     ) {
       score++;
-      console.log('correct');
+      
       alert('Correct! ' + quiz.answers[i].response);
-      //console.log(quiz.answers[i].response)
+      
     } else if (i === 5) {
-      //console.log('hit')
+      
       let numAttempts = 3;
       let numCorrect = false;
-      // console.log(quiz.answers[i].answer);
+      
       while (numAttempts > 0) {
-        //console.log('guestAnswer: ' + guestAnswer);
-        //let type = typeof +guestAnswer;
-        //console.log('guestAnswer parsed: '+ +guestAnswer, 'typeof :' + type);
+        
         if (isNaN(+guestAnswer)) {
           alert('Numbers only please.');
           guestAnswer = prompt(quiz.questions[i]);
         } else if (guestAnswer === quiz.answers[i].answer) {
           score++;
-          //console.log('score added', score);
+          
           numCorrect = true;
           break;
         } else if (+guestAnswer < quiz.answers[i].answer) {
           alert('That\'s a little low. Try again please');
-          console.log('current guestAnswer:', guestAnswer);
+          
           guestAnswer = prompt(quiz.questions[i]);
 
-          //console.log('bang', numAttempts)
+          
         } else if (+guestAnswer > quiz.answers[i].answer) {
           alert('That\'s a little high. Try again please');
           guestAnswer = prompt(quiz.questions[i]);
 
-          //console.log('wham', numAttempts)
+          
         }
         numAttempts--;
-        //console.log('running now.')
+        
       }
       if (numCorrect === false) {
         alert('Sorry, that\'s incorrect. ' + quiz.answers[i].response);
@@ -122,13 +120,11 @@ function quizTest() {
 
       let correctAnswer = false;
 
-      //break multiple loops should be able to make top loop variable outside scope, but another fun way is: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label
-      //let's get snakey in here!
+
 
       loop1:
       for (let x = 0; x <= 6; x++) {
-        console.log('question 7 guestAnswer: ' + guestAnswer);
-        console.log('length of answer array: ' + quiz.answers[i].answer.length);
+        
 
         if (x < 6) {
           loop2:
@@ -142,18 +138,17 @@ function quizTest() {
             }
           }
 
-          //if no correct in above for loop -- give error and repeat.
           alert('Sorry, Didn\'t find the answer on this guess. Try again.')
           guestAnswer = prompt(quiz.questions[i])
-          console.log('bang')
+          
 
         }
 
       }
       alert('All posible answers were: ' + JSON.stringify(quiz.answers[i].answer));
     } else {
-      console.log('incorrect')
-      //console.log('Sorry, that\'s incorrect. ', quiz.answers[i].response)
+     
+      
       alert('Sorry, that\'s incorrect. ' + quiz.answers[i].response);
     }
   }
